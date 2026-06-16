@@ -8,6 +8,7 @@
 
 <title>Repollo</title>
 
+```{=html}
 <style>
 body{
     margin:0;
@@ -19,13 +20,32 @@ img{
     display:block;
 }
 </style>
+```
 
 </head>
 
-<body>
-
-<img src="zanahoria.png" alt="Infografía del zanahoria"/>
-
-</body>
+<body><img src="zanahoria.png" alt="Infografía del zanahoria"/></body>
 
 </html>
+
+install.packages("qrcode")
+
+library(qrcode)
+
+url <- "https://leszavaleta.github.io/semillas-/zanahoria.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR
+png(
+  filename = "QR_zanahoria.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
