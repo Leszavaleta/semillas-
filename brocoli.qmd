@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Repollo</title>
+<title>brocoli</title>
 
 <style>
 body{
@@ -24,7 +24,7 @@ img{
 
 <body>
 
-<img src="zanahoria.png" alt="Infografía del zanahoria"/>
+<img src="brocoli.png" alt="Infografía del brocoli"/>
 
 </body>
 

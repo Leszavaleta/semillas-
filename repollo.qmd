@@ -24,7 +24,7 @@ img{
 
 <body>
 
-<img src="zanahoria.png" alt="Infografía del zanahoria"/>
+<img src="repollo.png" alt="Infografía del repollo"/>
 
 </body>
 
