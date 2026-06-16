@@ -25,8 +25,30 @@ img{
 </head>
 <body>
 
-<img src="lechuga_vertical.png" alt="Infografía de la lechuga">
+<img src="lactuca.png" alt="Infografía de la lechuga">
 
 </body>
 </html>
+
+install.packages("qrcode")
+
+library(qrcode)
+
+url <- "https://leszavaleta.github.io/semillas-/lactuca.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR
+png(
+  filename = "QR_lechuga.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
 
