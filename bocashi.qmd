@@ -28,3 +28,63 @@ iframe{
 </body>
 </html>
 
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/andrea.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_san andrea.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/bocashi.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_bocashi.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+cat("Código QR generado correctamente.")
+iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+}
+</style>
+
+</head>
+<body>
+
+<iframe src="vermi.pdf"></iframe>
+
+</body>
+</html>

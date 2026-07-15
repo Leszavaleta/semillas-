@@ -13,6 +13,44 @@ html, body{
     height:100%;
 }
 
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/mobs.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_mobs.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+cat("Código QR generado correctamente.")
+iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+}
+</style>
+
+</head>
+<body>
+
+<iframe src="vermi.pdf"></iframe>
+
+</body>
+</html>
+
 iframe{
     width:100%;
     height:100vh;

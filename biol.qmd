@@ -27,3 +27,50 @@ iframe{
 
 </body>
 </html>
+
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/andrea.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_san andrea.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/biol.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_biol.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+cat("Código QR generado correctamente.")
