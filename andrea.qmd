@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>len</title>
+<title>san andrea</title>
 
 <style>
 body{
@@ -25,30 +25,8 @@ img{
 </head>
 <body>
 
-<img src="len.png" alt="Infografía de la leni">
+<img src="san andrea.png" alt="Infografía de la san andrea">
 
 </body>
 </html>
-
-# Cargar librería
-library(qrcode)
-
-# URL de la página
-url <- "https://leszavaleta.github.io/semillas-/len.html"
-
-# Crear QR
-qr <- qr_code(url)
-
-# Guardar QR en alta calidad
-png(
-  filename = "QR_len.png",
-  width = 3000,
-  height = 3000,
-  res = 300
-)
-
-par(mar = c(0,0,0,0))
-plot(qr)
-
-dev.off()
 
