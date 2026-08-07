@@ -77,6 +77,43 @@ iframe{
 </iframe>
 
 
+<section id="cargar-librería" class="level1">
+<h1>Cargar librería</h1>
+<p>library(qrcode)</p>
+</section>
+<section id="url-de-la-página" class="level1">
+<h1>URL de la página</h1>
+<p>url &lt;- “https://leszavaleta.github.io/semillas-/andrea.html”</p>
+</section>
+<section id="crear-qr" class="level1">
+<h1>Crear QR</h1>
+<p>qr &lt;- qr_code(url)</p>
+</section>
+<section id="guardar-qr-en-alta-calidad" class="level1">
+<h1>Guardar QR en alta calidad</h1>
+<p>png( filename = “QR_san andrea.png”, width = 3000, height = 3000, res = 300 )</p>
+<p>par(mar = c(0,0,0,0)) plot(qr)</p>
+<p>dev.off()</p>
+</section>
+<section id="cargar-librería-1" class="level1">
+<h1>Cargar librería</h1>
+<p>library(qrcode)</p>
+</section>
+<section id="url-de-la-página-1" class="level1">
+<h1>URL de la página</h1>
+<p>url &lt;- “https://leszavaleta.github.io/semillas-/afiche2.html”</p>
+</section>
+<section id="crear-qr-1" class="level1">
+<h1>Crear QR</h1>
+<p>qr &lt;- qr_code(url)</p>
+</section>
+<section id="guardar-qr-en-alta-calidad-1" class="level1">
+<h1>Guardar QR en alta calidad</h1>
+<p>png( filename = “QR_afiche2.png”, width = 3000, height = 3000, res = 300 )</p>
+<p>par(mar = c(0,0,0,0)) plot(qr)</p>
+<p>dev.off()</p>
+<p>cat(“Código QR generado correctamente.”)</p>
+</section>
 
 </main>
 <!-- /main column -->
