@@ -27,3 +27,128 @@ iframe{
 
 </body>
 </html>
+
+# Cargar librería
+library(qrcode)
+
+# URL de la página
+url <- "https://leszavaleta.github.io/semillas-/ANDINA.html"
+
+# Crear QR
+qr <- qr_code(url)
+
+# Guardar QR en alta calidad
+png(
+  filename = "QR_ANDINA.png",
+  width = 3000,
+  height = 3000,
+  res = 300
+)
+
+par(mar = c(0,0,0,0))
+plot(qr)
+
+dev.off()
+
+cat("Código QR generado correctamente.")
+
+library(magick)
+
+# ==============================
+# 1. CARGAR LAS IMÁGENES
+# ==============================
+
+qr <- image_read("QR_ANDINA.png")
+logo <- image_read("LOGO INIA.png")
+
+
+# ==============================
+# 2. HACER EL LOGO MÁS PEQUEÑO
+# ==============================
+
+logo <- image_resize(logo, "220x220")
+
+
+# ==============================
+# 3. HACER EL LOGO CIRCULAR
+# ==============================
+
+# Crear máscara circular
+mask <- image_blank(
+  width = 220,
+  height = 220,
+  color = "none"
+)
+
+mask <- image_draw(mask)
+
+symbols(
+  x = 110,
+  y = 110,
+  circles = 105,
+  bg = "white",
+  fg = "white"
+)
+
+dev.off()
+
+# Aplicar máscara circular
+logo <- image_composite(
+  image_blank(220, 220, "white"),
+  logo,
+  operator = "copy"
+)
+
+
+# ==============================
+# 4. CREAR CÍRCULO BLANCO
+#    PARA PROTEGER EL QR
+# ==============================
+
+fondo <- image_blank(
+  width = 280,
+  height = 280,
+  color = "white"
+)
+
+
+# ==============================
+# 5. COLOCAR EL LOGO EN EL CÍRCULO
+# ==============================
+
+logo_centro <- image_composite(
+  fondo,
+  logo,
+  gravity = "center"
+)
+
+
+# ==============================
+# 6. INSERTAR EN EL CENTRO DEL QR
+# ==============================
+
+qr_final <- image_composite(
+  qr,
+  logo_centro,
+  gravity = "center"
+)
+
+
+# ==============================
+# 7. GUARDAR EL RESULTADO
+# ==============================
+
+image_write(
+  qr_final,
+  "QR_ANDINA_FINAL.png",
+  format = "png"
+)
+
+
+# Mostrar resultado
+qr_final
+
+
+
+
+
