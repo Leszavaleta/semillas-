@@ -151,4 +151,27 @@ qr_final
 
 
 
+# ==========================================
+# CÓDIGO QR - INTI
+# ==========================================
+
+install.packages("qrencode")
+library(qrencode)
+
+# Enlace de la página web
+url <- "https://leszavaleta.github.io/inti/"
+
+# Generar QR
+qrencode(
+  url,
+  mode = "png",
+  file = "QR_inti.png",
+  size = 1000
+)
+
+# Mostrar el QR
+knitr::include_graphics("QR_inti.png")
+
+
+
 

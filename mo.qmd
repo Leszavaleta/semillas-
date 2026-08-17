@@ -21,7 +21,6 @@ library(knitr)
 logo_untrm <- image_uri("UNTRM.png")
 logo_inia  <- image_uri("inia.jpg")
 
-
 # ==========================================
 # ENCABEZADO
 # ==========================================
@@ -39,7 +38,7 @@ encabezado <- tags$div(
 
   tags$div(
     class = "titulo",
-    "TARMA_M2 OJO AMARILLO"
+    "AMARILLA PINTADA M2 AMARILLO MORADO"
   ),
 
   tags$div(
@@ -52,9 +51,8 @@ encabezado <- tags$div(
 )
 
 encabezado
-```
 
-```{r}
+
 # ==========================================
 # INFORMACIÓN DE LA COLECTA
 # ==========================================
@@ -72,13 +70,13 @@ datos <- data.frame(
   ),
 
   Información = c(
-    "VITA-1206",
-    "Tarma - M2 ojo amarillo",
+    "VITA-1180",
+    "Amarilla pintada M2 amarillo morado (n.o)",
     "Solanum tuberosum L.",
     "Amazonas",
-    "Leymebamba",
-    "2230 m.s.n.m",
-    "6°42'28.7\"S   77°48'11.7\"W"
+    "Huacas",
+    "2718 m.s.n.m",
+    "6°28'21.9\"S   77°50'43.7\"W"
   ),
 
   stringsAsFactors = FALSE
@@ -206,7 +204,6 @@ body {
   justify-content: center;
 }
 
-
 .logo-untrm img {
 
   max-width: 140px;
@@ -238,7 +235,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 .logo-inia img {
 
@@ -319,14 +315,12 @@ body {
     padding: 15px;
   }
 
-
   .encabezado {
 
     width: 100%;
 
     min-height: 80px;
   }
-
 
   .titulo {
 
@@ -335,14 +329,12 @@ body {
     padding: 10px 90px;
   }
 
-
   .logo-untrm,
   .logo-inia {
 
     width: 80px;
     height: 65px;
   }
-
 
   .logo-untrm img,
   .logo-inia img {
@@ -351,14 +343,12 @@ body {
     max-height: 65px;
   }
 
-
   .tabla {
 
     width: 100%;
 
     font-size: 16px;
   }
-
 
   .tabla th,
   .tabla td {
@@ -369,27 +359,3 @@ body {
 }
 
 </style>
-
-# Cargar librería
-library(qrcode)
-
-# URL de la página
-
-url <- "https://leszavaleta.github.io/semillas-/tarma.html"
-
-# Crear QR
-qr <- qr_code(url)
-
-# Guardar QR en alta calidad
-png(
-  filename = "QR_1206.png",
-  width = 3000,
-  height = 3000,
-  res = 300
-)
-
-par(mar = c(0,0,0,0))
-plot(qr)
-
-dev.off()
-
