@@ -38,7 +38,7 @@ encabezado <- tags$div(
 
   tags$div(
     class = "titulo",
-    "AMARILLA PINTADA M2 AMARILLO MORADO"
+    "ATUEN 4"
   ),
 
   tags$div(
@@ -70,8 +70,8 @@ datos <- data.frame(
   ),
 
   Información = c(
-    "VITA-1180",
-    "Amarilla pintada M2 amarillo morado (n.o)",
+    "VITA-1190",
+    "Atuen 4",
     "Solanum tuberosum L.",
     "Amazonas",
     "Huacas",
@@ -359,27 +359,3 @@ body {
 }
 
 </style>
-
-# Cargar librería
-library(qrcode)
-
-# URL de la página
-
-url <- "https://leszavaleta.github.io/semillas-/mo.html"
-
-# Crear QR
-qr <- qr_code(url)
-
-# Guardar QR en alta calidad
-png(
-  filename = "QR_1180.png",
-  width = 3000,
-  height = 3000,
-  res = 300
-)
-
-par(mar = c(0,0,0,0))
-plot(qr)
-
-dev.off()
-
