@@ -1,0 +1,375 @@
+---
+title: ""
+format:
+  html:
+    toc: false
+    page-layout: full
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(htmltools)
+library(knitr)
+
+# ==========================================
+# LOGOS
+# ==========================================
+
+logo_untrm <- image_uri("UNTRM.png")
+logo_inia  <- image_uri("inia.jpg")
+
+
+# ==========================================
+# ENCABEZADO
+# ==========================================
+
+encabezado <- tags$div(
+  class = "encabezado",
+
+  tags$div(
+    class = "logo-untrm",
+    tags$img(
+      src = logo_untrm,
+      alt = "UNTRM"
+    )
+  ),
+
+  tags$div(
+    class = "titulo",
+    "HUAMANTANGA"
+  ),
+
+  tags$div(
+    class = "logo-inia",
+    tags$img(
+      src = logo_inia,
+      alt = "INIA"
+    )
+  )
+)
+
+encabezado
+
+
+# ==========================================
+# INFORMACIÓN
+# ==========================================
+
+datos <- data.frame(
+
+  `Código Banco de Germoplasma` = c(
+    "UNTRM-330-1449"
+  ),
+
+  `Nombre común` = c(
+    "Huamantanga"
+  ),
+
+  `Código de colecta` = c(
+    "MG-ST-090"
+  ),
+
+  check.names = FALSE,
+  stringsAsFactors = FALSE
+)
+
+
+# ==========================================
+# CREACIÓN DE LA TABLA
+# ==========================================
+
+tabla <- tags$table(
+
+  tags$tr(
+    tags$th("Código Banco de Germoplasma"),
+    tags$th("Nombre común"),
+    tags$th("Código de colecta")
+  ),
+
+  lapply(1:nrow(datos), function(i) {
+
+    tags$tr(
+
+      tags$td(
+        datos$`Código Banco de Germoplasma`[i]
+      ),
+
+      tags$td(
+        datos$`Nombre común`[i]
+      ),
+
+      tags$td(
+        datos$`Código de colecta`[i]
+      )
+
+    )
+
+  }),
+
+  class = "tabla"
+)
+
+tabla
+```
+
+<style>
+
+body {
+  background: white;
+  margin: 0;
+  padding: 30px;
+  font-family: "Times New Roman", serif;
+  color: black;
+}
+
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.encabezado {
+
+  width: 90%;
+  max-width: 850px;
+
+  margin: 0 auto 25px auto;
+
+  position: relative;
+
+  min-height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 2px solid black;
+}
+
+
+/* ==========================================
+   TÍTULO
+   ========================================== */
+
+.titulo {
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  color: purple;
+
+  line-height: 1.3;
+
+  padding: 10px 160px;
+}
+
+
+/* ==========================================
+   LOGO UNTRM
+   ========================================== */
+
+.logo-untrm {
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 130px;
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.logo-untrm img {
+
+  max-width: 140px;
+  max-height: 100px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* ==========================================
+   LOGO INIA
+   ========================================== */
+
+.logo-inia {
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 130px;
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.logo-inia img {
+
+  max-width: 140px;
+  max-height: 100px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* ==========================================
+   TABLA
+   ========================================== */
+
+.tabla {
+
+  border-collapse: collapse;
+
+  width: 90%;
+  max-width: 850px;
+
+  margin: 25px auto;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 20px;
+
+  text-align: center;
+
+  background: white;
+}
+
+
+.tabla th,
+.tabla td {
+
+  border: 2px solid black;
+
+  padding: 18px 12px;
+
+  vertical-align: middle;
+}
+
+
+/* ==========================================
+   ENCABEZADOS
+   ========================================== */
+
+.tabla th {
+
+  font-weight: bold;
+
+  background-color: white;
+}
+
+
+/* ==========================================
+   ANCHOS DE COLUMNAS
+   ========================================== */
+
+.tabla th:nth-child(1),
+.tabla td:nth-child(1) {
+
+  width: 40%;
+}
+
+
+.tabla th:nth-child(2),
+.tabla td:nth-child(2) {
+
+  width: 30%;
+}
+
+
+.tabla th:nth-child(3),
+.tabla td:nth-child(3) {
+
+  width: 30%;
+}
+
+
+/* ==========================================
+   CELULAR
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  body {
+
+    padding: 15px;
+  }
+
+
+  .encabezado {
+
+    width: 100%;
+
+    min-height: 80px;
+  }
+
+
+  .titulo {
+
+    font-size: 22px;
+
+    padding: 10px 90px;
+  }
+
+
+  .logo-untrm,
+  .logo-inia {
+
+    width: 80px;
+
+    height: 65px;
+  }
+
+
+  .logo-untrm img,
+  .logo-inia img {
+
+    max-width: 85px;
+
+    max-height: 65px;
+  }
+
+
+  .tabla {
+
+    width: 100%;
+
+    font-size: 16px;
+  }
+
+
+  .tabla th,
+  .tabla td {
+
+    padding: 10px 5px;
+
+    word-break: normal;
+  }
+
+}
+
+</style>
